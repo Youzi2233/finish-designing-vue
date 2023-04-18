@@ -291,8 +291,13 @@ const handleDelete = async (item: SliderListData) => {
     }
   }
 }
+.dialog-add {
+  height: 585px;
+  position: relative;
+}
 .footer {
-  margin-top: 15px;
+  position: absolute;
+  bottom: 0;
   display: flex;
   width: 100%;
   justify-content: center;

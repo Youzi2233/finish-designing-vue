@@ -8,7 +8,7 @@ enum Api {
     // 编辑帮助
     edit = '/help/update',
     // 删除
-    delete = '/help/del',
+    delete = '/help/delete',
     // 根据id查询帮助
     getHelpById = '/help/getById'
 }
@@ -41,11 +41,11 @@ export interface EditHelpReq extends DelHelpReq, AddHelpReq {
 
 // 编辑帮助
 export const editHelp = (data: EditHelpReq) => {
-    return axios.post<any, BaseRes>(Api.delete, data)
+    return axios.post<any, BaseRes>(Api.edit, data)
 }
 
 export interface HelpListData extends AddHelpReq {
-    id: number;
+    helpId: number;
 }
 interface Data {
     total: number;

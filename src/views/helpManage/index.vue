@@ -19,9 +19,9 @@
         @selection-change="handleSelectionChange"
       >
         <el-table-column type="selection" />
-        <el-table-column prop="id" label="id" />
+        <el-table-column prop="helpId" label="helpId" />
         <el-table-column prop="problem" label="问题" />
-        <el-table-column prop="answer" label="帮助" />
+        <el-table-column prop="answer" label="回答" />
         <el-table-column fixed="right" label="操作" width="120">
           <template #default="scope">
             <el-button
@@ -62,7 +62,7 @@
   <!-- 对话框 -->
   <el-dialog width="50%" v-model="dialogFormVisible" :title="title">
     <el-form :model="form">
-      <el-form-item v-if="form.helpId > 0" label="id">
+      <el-form-item v-if="form.helpId > 0" label="编号">
         <el-input disabled v-model="form.helpId" />
       </el-form-item>
       <el-form-item label="问题">
@@ -120,14 +120,14 @@ requestFn();
 
 // 单个删除
 const handleDelete = async (item: HelpListData) => {
-  await deleteHelp({ helpId: item.id });
+  await deleteHelp({ helpId: item.helpId });
   handleRefresh();
 };
 // 单个编辑
 const handleEdit = async (item: HelpListData) => {
   dialogFormVisible.value = true;
   title.value = "编辑帮助";
-  form.helpId = item.id;
+  form.helpId = item.helpId;
   form.problem = item.problem;
   form.answer = item.answer;
 };
@@ -159,7 +159,7 @@ const handleAdd = async () => {
 // 批量删除
 const handleBatchDelete = async () => {
   for (let i = 0; i < selectList.value.length; i++) {
-    await deleteHelp({ helpId: selectList.value[i].id });
+    await deleteHelp({ helpId: selectList.value[i].helpId });
   }
   handleRefresh();
 };

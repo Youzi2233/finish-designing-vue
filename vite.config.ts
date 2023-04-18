@@ -37,14 +37,6 @@ export default defineConfig({
         drop_debugger: true, // 生产环境移除debugger
       },
     },
-    rollupOptions: {
-      output: {
-        // 配置输出文件夹
-        // chunkFileNames: 'js/[name]-[hash].js',
-        // entryFileNames: 'js/[name]-[hash].js',
-        // assetFileNames: '[ext]/[name]-[hash].[ext]',
-      },
-    },
   }
 
 })

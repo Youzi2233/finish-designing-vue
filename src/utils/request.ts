@@ -49,6 +49,7 @@ service.interceptors.response.use(
                         duration: 1000,
                         message: '请先登录'
                     })
+                    break;
                 default:
                     const admin = useUserInfoStore();
                     admin.resizeState();
@@ -58,6 +59,7 @@ service.interceptors.response.use(
                         message: "请先登录",
                         duration: 1000,
                     })
+                    break;
             }
         }
         return Promise.reject(error);

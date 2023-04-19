@@ -12,6 +12,8 @@
       <van-cell title="地址管理" is-link to="addressManage" />
       <van-cell title="修改个人信息" is-link to="changeUserInfo" />
       <van-cell title="修改密码" is-link to="resizePassword" />
+      <van-cell title="申请成为店主" @click="handleApplication" is-link />
+      <van-cell title="帮助中心" is-link to="helpCenter" />
     </div>
     <div class="loginOut">
       <van-button
@@ -28,9 +30,10 @@
 
 <script setup lang="ts">
 import { useRouter } from "vue-router";
-import { loginOutFn } from "./api/index";
+import { loginOutFn, applicateUpgrade } from "./api/index";
 import { useUserInfoStore } from "@/store";
-import { showSuccessToast, showFailToast } from "vant";
+import { showSuccessToast, showFailToast, showConfirmDialog } from "vant";
+
 const router = useRouter();
 const user = useUserInfoStore();
 
@@ -51,6 +54,31 @@ const handleLoginOut = async () => {
       message: res.msg,
     });
   }
+};
+
+// 申请成为店主
+const handleApplication = () => {
+  showConfirmDialog({
+    message: "是否提交申请成为店长？",
+  })
+    .then(async () => {
+      const res = await applicateUpgrade();
+      switch (res.msg.toLowerCase()) {
+        case "success":
+          showSuccessToast({
+            duration: 1000,
+            message: "申请成功",
+          });
+          break;
+        default:
+          showFailToast({
+            duration: 1000,
+            message: res.msg,
+          });
+          break;
+      }
+    })
+    .catch(() => {});
 };
 </script>
 

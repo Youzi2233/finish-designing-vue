@@ -21,6 +21,10 @@ const ManagementLayout = () => import('@/views/ManagementLayout.vue')
 const ApplicationManage = () => import('@/views/applicationManage/index.vue')
 const SliderManage = () => import('@/views/sliderManage/index.vue')
 const HelpManage = () => import('@/views/helpManage/index.vue')
+const ProductPublish = () => import('@/views/productPublish/index.vue')
+const Publish = () => import('@/views/publish/index.vue')
+const ProductSell = () => import('@/views/productSell/index.vue')
+const HelpCenter = () => import("@/views/helpCenter/index.vue")
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
@@ -92,6 +96,26 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/order',
         component: Order
+    },
+    {
+        path: "/productPublish",
+        component: ProductPublish
+    },
+    {
+        path: "/publish",
+        component: Publish
+    },
+    {
+        path: "/edit",
+        component: Publish
+    },
+    {
+        path: "/productSell",
+        component: ProductSell
+    },
+    {
+        path: "/helpCenter",
+        component: HelpCenter
     },
     // PC
     {

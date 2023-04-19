@@ -2,15 +2,22 @@ import axios from '@/utils/request'
 
 enum Api {
     // 退出登录
-    loginOut = '/user/logOut'
+    loginOut = '/user/logOut',
+    // 申请成为店主
+    upgrade = '/user/upgrade'
 }
 
 
-type Data = {
-    data: any;
+type BaseRes = {
+    data: null;
     msg: string;
     status: number
 }
+// 退出登录
 export const loginOutFn = () => {
-    return axios.get<any, Data>(Api.loginOut)
+    return axios.get<any, BaseRes>(Api.loginOut)
+}
+// 申请成为店主
+export const applicateUpgrade = () => {
+    return axios.post<any, BaseRes>(Api.upgrade)
 }

@@ -8,6 +8,8 @@
     />
     <!-- 待付款 待收货 我的订单 -->
     <orderCard style="margin-top: 10px" />
+    <!-- 我的小店 -->
+    <myShopCard style="margin-top: 10px" />
     <!-- 商品推荐列表 -->
     <div>
       <div class="goods-list" v-if="goodsList">
@@ -41,6 +43,7 @@ import { ref } from "vue";
 import UserCard from "./components/UserCard.vue";
 import orderCard from "./components/orderCard.vue";
 import goodsCard from "@/components/goodsCard.vue";
+import myShopCard from "./components/myShopCard.vue";
 import infiniteLoading from "@/components/infinite-loading.vue";
 import { useRouter } from "vue-router";
 import { useUserInfoStore } from "@/store";

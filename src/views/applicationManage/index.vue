@@ -1,5 +1,5 @@
 <template>
-  <div class="product-manage">
+  <div class="application-manage">
     <!-- 操作栏 -->
     <actionBarManage
       :add-show="false"
@@ -147,11 +147,10 @@ requestFn();
 </script>
 
 <style lang="less" scoped>
-.product-manage {
-  height: 830px;
+.application-manage {
+  min-height: 100%;
   background-color: #fff;
   position: relative;
-  overflow: scroll;
   .table {
     padding: 15px;
     position: relative;

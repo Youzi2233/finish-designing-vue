@@ -1,5 +1,5 @@
 <template>
-  <div class="product-manage">
+  <div class="help-manage">
     <!-- 操作栏 -->
     <actionBarManage
       :search-show="false"
@@ -218,11 +218,10 @@ const handleSubmit = async () => {
 </script>
 
 <style lang="less" scoped>
-.product-manage {
-  height: 830px;
+.help-manage {
+  min-height: 100%;
   background-color: #fff;
   position: relative;
-  overflow: scroll;
   .table {
     padding: 15px;
     position: relative;

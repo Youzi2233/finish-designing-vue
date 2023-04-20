@@ -1,5 +1,5 @@
 <template>
-  <div class="product-manage">
+  <div class="slider-manage">
     <!-- 操作栏 -->
     <actionBarManage
       :search-show="false"
@@ -260,11 +260,10 @@ const handleDelete = async (item: SliderListData) => {
 </script>
 
 <style lang="less" scoped>
-.product-manage {
-  height: 830px;
+.slider-manage {
   background-color: #fff;
   position: relative;
-  overflow: scroll;
+  min-height: 100%;
   .table {
     padding: 15px;
     position: relative;

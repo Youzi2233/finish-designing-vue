@@ -1,0 +1,58 @@
+{
+  "id": "4000393",
+  "name": "毕设2",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8682253",
+      "name": "收藏用户",
+      "font_class": "shoucangyonghu",
+      "unicode": "e682",
+      "unicode_decimal": 59010
+    },
+    {
+      "icon_id": "34279443",
+      "name": "数据展示",
+      "font_class": "shujuzhanshi",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "34279445",
+      "name": "完成，记录",
+      "font_class": "a-wanchengjilu",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "34279448",
+      "name": "目标，导航",
+      "font_class": "a-mubiaodaohang",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "34308666",
+      "name": "日志，管理",
+      "font_class": "a-rizhiguanli",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "1221225",
+      "name": "性别女",
+      "font_class": "xingbienv",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "1221226",
+      "name": "性别男",
+      "font_class": "xingbienan",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    }
+  ]
+}

@@ -25,6 +25,7 @@ const ProductPublish = () => import('@/views/productPublish/index.vue')
 const Publish = () => import('@/views/publish/index.vue')
 const ProductSell = () => import('@/views/productSell/index.vue')
 const HelpCenter = () => import("@/views/helpCenter/index.vue")
+const Dashboard = () => import('@/views/dashboard/index.vue')
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
@@ -126,6 +127,14 @@ const routes: Array<RouteRecordRaw> = [
         path: '/managementIndex',
         component: ManagementLayout,
         children: [
+            {
+                path: '',
+                component: Dashboard,
+                meta: {
+                    index: "1",
+                    title: "商城管理 - 控制台"
+                }
+            },
             {
                 path: 'helpManage',
                 component: HelpManage,

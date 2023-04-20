@@ -57,7 +57,7 @@
             </div>
           </div>
         </el-header>
-        <el-main>
+        <el-main class="management-main">
           <router-view></router-view>
         </el-main>
       </el-container>
@@ -148,6 +148,10 @@ const handleLoginOut = async () => {
         }
       }
     }
+  }
+  .management-main {
+    height: 869px;
+    overflow: scroll;
   }
 }
 </style>

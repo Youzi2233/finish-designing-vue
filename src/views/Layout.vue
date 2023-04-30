@@ -6,7 +6,10 @@
     <div class="footer">
       <van-tabbar v-model="active">
         <van-tabbar-item icon="wap-home">首页</van-tabbar-item>
-        <van-tabbar-item icon="shopping-cart" :badge="store.cartNum">
+        <van-tabbar-item
+          icon="shopping-cart"
+          :badge="store.cartNum > 0 ? store.cartNum : undefined"
+        >
           购物车
         </van-tabbar-item>
         <van-tabbar-item icon="manager">我的</van-tabbar-item>

@@ -9,6 +9,8 @@ enum Api {
     changeChecked = '/cart/changeChecked',
     // 删除购物车商品
     delete = '/cart/delete',
+    // 获取购物车数量
+    cartSize = '/cart/cartSize'
 }
 
 export interface GetCartListData {
@@ -91,4 +93,15 @@ type DeleteResponseData = {
 // 获取购物车商品选中状态
 export const deleteCartProduct = (data: DeleteCartProductRequest) => {
     return axios.post<any, DeleteResponseData>(Api.delete, data)
+}
+
+
+type CartSizeRes = {
+    data: number
+    msg: string;
+    status: number
+}
+// 获取购物车数量
+export const getcartSize = () => {
+    return axios.get<any, CartSizeRes>(Api.cartSize)
 }

@@ -3,7 +3,7 @@ import type { GetCartListData } from '@/views/cart/api/index'
 import type { BuyProductData } from '@/views/writeOrder/api/index'
 import type { AddressListAddress } from "vant";
 import type { Data } from '@/views/login/api/index'
-import { getCartList } from '@/views/cart/api/index'
+import { getcartSize } from '@/views/cart/api/index'
 
 const enum Store {
     UserProfile = 'UserProfile',
@@ -34,12 +34,13 @@ export const useUserInfoStore = defineStore(Store.UserProfile, {
             this.privilege = ""
             this.createdAt = ""
             this.updatedAt = ""
-            this.cartNum = 2
+            this.cartNum = 0
         },
         async getCartSum() {
             try {
-                const { data } = await getCartList()
-                this.cartNum = data.size > 0 ? data.size : undefined
+                const { data } = await getcartSize()
+                this.cartNum = data
+
             } catch (error) {
 
             }

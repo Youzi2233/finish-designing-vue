@@ -19,7 +19,7 @@ export interface Data {
     privilege: string;
     createdAt: string;
     updatedAt: string;
-    cartNum?: number
+    cartNum: number
 }
 type LoginData = {
     data: Data;

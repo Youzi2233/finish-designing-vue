@@ -134,12 +134,14 @@ const getData = async () => {
 watch(active, () => {
   pageNum.value = 0;
   goodsList.value = [];
+  finished.value = false;
   getData();
 });
 </script>
 
 <style lang="less" scoped>
 .index {
+  padding-bottom: 50px;
   .goods-list {
     display: flex;
     flex-wrap: wrap;

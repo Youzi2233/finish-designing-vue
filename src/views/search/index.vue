@@ -29,7 +29,7 @@
     <div class="content">
       <!-- 商品展示列表 -->
       <div>
-        <div class="goods-list" v-if="goodsList">
+        <div class="goods-list" v-if="goodsList.length">
           <goodsCard
             v-for="item in goodsList"
             :id="item.id"
@@ -90,6 +90,7 @@ import { reactive } from "vue";
 import { getGoodsList } from "@/views/personalPage/api/index";
 import type { GoodsData } from "@/views/personalPage/api/index";
 import goodsCard from "@/components/goodsCard.vue";
+import infiniteLoading from "@/components/infinite-loading.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -123,6 +124,7 @@ const handleResize = () => {
 const handleSubmit = () => {
   goodsList.value = [];
   searchForm.pageNum = 0;
+  finished.value = false;
   getData();
   show.value = false;
 };
@@ -163,6 +165,7 @@ const getData = async () => {
 .search {
   background-color: #f2f2f2;
   min-height: 100vh;
+  padding-bottom: 50px;
   .header {
     background-color: #fff;
     display: flex;

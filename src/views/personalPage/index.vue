@@ -92,7 +92,7 @@ const getData = async () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
   .goods-list {
     display: flex;
     flex-wrap: wrap;

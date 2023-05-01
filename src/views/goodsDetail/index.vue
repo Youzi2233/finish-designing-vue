@@ -57,7 +57,7 @@ getGoodsDetail({ productId: id }).then((res) => {
 
 // 加入购物车
 const addProductToCart = async () => {
-  const res = await addCart({ productId: goodsData.value!.id!, count: 1 });
+  const res = await addCart({ productId: id, count: 1 });
   if (res.msg.toLowerCase() === "success") {
     userStore.getCartSum();
     showSuccessToast({
@@ -86,7 +86,7 @@ const handleBuy = () => {
     image: goodsData.value!.image,
     userId: 0,
     price: goodsData.value!.price,
-    productId: goodsData.value!.id,
+    productId: id,
     quantity: 1,
     checked: "0",
   };

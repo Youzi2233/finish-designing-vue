@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <router-view v-slot="{ Component }">
-      <keep-alive>
-        <component :is="Component"></component>
-      </keep-alive>
-    </router-view>
+    <router-view></router-view>
     <van-back-top :offset="300" right="10px" bottom="60px" />
   </div>
 </template>

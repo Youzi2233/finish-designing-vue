@@ -1,11 +1,7 @@
 <template>
   <div class="layout">
     <div class="content">
-      <router-view v-slot="{ Component }">
-        <keep-alive>
-          <component :is="Component"></component>
-        </keep-alive>
-      </router-view>
+      <router-view></router-view>
     </div>
     <div class="footer">
       <van-tabbar v-model="active">

@@ -19,14 +19,14 @@ const data = reactive([
     title: "待付款",
     orderStatus: "未付款",
     iconName: "peer-pay",
-    showPoint: true,
+    showPoint: false,
     number: 0,
   },
   {
     title: "待收货",
     orderStatus: "已发货",
     iconName: "send-gift-o",
-    showPoint: true,
+    showPoint: false,
     number: 0,
   },
   {

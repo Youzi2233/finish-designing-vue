@@ -2,7 +2,9 @@ import axios from '@/utils/request'
 
 enum Api {
     // 获取商品列表
-    getGoodsList = '/product/list'
+    getGoodsList = '/product/list',
+    // 获取订单数量
+    getCount = '/order/getCount'
 }
 
 export interface GoodsData {
@@ -53,4 +55,18 @@ type ResponseData = {
 // 获取商品列表
 export const getGoodsList = (data: GoodsRequest = {}) => {
     return axios.get<any, ResponseData>(Api.getGoodsList, { params: data })
+}
+
+
+type GetCountRes = {
+    data: {
+        noPay: number
+        noReceive: number
+    }
+    msg: string;
+    status: number
+}
+// 获取订单数量
+export const getCount = () => {
+    return axios.get<any, GetCountRes>(Api.getCount)
 }

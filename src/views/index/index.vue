@@ -9,18 +9,21 @@
     />
     <!-- 轮播图 -->
     <van-swipe
+      @change="onChange"
       v-if="sliderList.length"
       :autoplay="3000"
       indicator-color="white"
     >
       <van-swipe-item v-for="item in sliderList">
-        <van-image
-          @click="router.push(`/goodsDetail/${item.productId}`)"
-          width="100vw"
-          height="200px"
-          fit="fill"
-          :src="item.img"
-        />
+        <div class="container" :style="bgColor">
+          <van-image
+            @click="router.push(`/goodsDetail/${item.productId}`)"
+            width="100vw"
+            height="200px"
+            fit="contain"
+            :src="item.img"
+          />
+        </div>
       </van-swipe-item>
     </van-swipe>
     <!-- 商品分类bar -->
@@ -50,7 +53,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref, watch, reactive } from "vue";
 import { getSliderList, getCateList, getRecommendList } from "./api/index";
 import type {
   GetListData,
@@ -60,9 +63,11 @@ import type {
 import { useRouter } from "vue-router";
 import { getGoodsList } from "@/views/personalPage/api/index";
 import infiniteLoading from "@/components/infinite-loading.vue";
+import { useImageColor } from "@/hook/index";
 const router = useRouter();
-
 // 搜索
+console.log(1);
+
 const searchValue = ref("");
 const handleSearch = (value: string) => {
   router.push({
@@ -74,10 +79,23 @@ const handleSearch = (value: string) => {
 };
 
 // 轮播图
+const bgColorList = ref<string[]>([]);
 const sliderList = ref<GetListData[]>([]);
 getSliderList().then((res) => {
   sliderList.value = res.data;
+  sliderList.value.forEach(async (item) => {
+    const res = await useImageColor(item.img);
+    bgColorList.value.push(res.avgColor.value ?? "#fff");
+    bgColor.backgroundColor = bgColorList.value[0];
+  });
 });
+
+const bgColor = reactive({
+  backgroundColor: "fff",
+});
+const onChange = (index: number) => {
+  bgColor.backgroundColor = bgColorList.value[index];
+};
 
 // 分类
 const active = ref(0);
@@ -142,6 +160,9 @@ watch(active, () => {
 <style lang="less" scoped>
 .index {
   padding-bottom: 50px;
+  .container {
+    height: 200px;
+  }
   .goods-list {
     display: flex;
     flex-wrap: wrap;

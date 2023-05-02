@@ -113,7 +113,9 @@ const handleAction = async (action: number, item: MyGoodsData) => {
     case 0:
       const res = await deleteProduct({ id: item.id });
       if (res.msg.toLowerCase() == "success") {
-        router.back();
+        MyGoodsList.value = MyGoodsList.value.filter(
+          (goods) => goods.id !== item.id
+        );
         showSuccessToast({
           message: "删除成功",
           duration: 1000,

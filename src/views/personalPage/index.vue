@@ -9,7 +9,7 @@
     <!-- 待付款 待收货 我的订单 -->
     <orderCard style="margin-top: 10px" />
     <!-- 我的小店 -->
-    <myShopCard style="margin-top: 10px" />
+    <myShopCard v-if="user.privilege === '1'" style="margin-top: 10px" />
     <!-- 商品推荐列表 -->
     <div>
       <div class="goods-list" v-if="goodsList">

@@ -1,7 +1,10 @@
 <template>
   <div class="order-card">
     <!-- 待付款 -->
-    <van-badge v-for="item in data" :dot="item.showPoint">
+    <van-badge
+      v-for="item in data"
+      :content="item.number > 0 ? item.number : ''"
+    >
       <div class="card" @click="handleClick(item.orderStatus)">
         <van-icon class="icon" :name="item.iconName" />
         <span class="title">{{ item.title }}</span>
@@ -19,21 +22,19 @@ const data = reactive([
     title: "待付款",
     orderStatus: "未付款",
     iconName: "peer-pay",
-    showPoint: false,
     number: 0,
   },
   {
     title: "待收货",
     orderStatus: "已发货",
     iconName: "send-gift-o",
-    showPoint: false,
     number: 0,
   },
   {
     title: "订单完成",
     orderStatus: "订单完成",
     iconName: "diamond-o",
-    showPoint: false,
+    number: 0,
   },
 ]);
 const router = useRouter();
@@ -47,9 +48,7 @@ const handleClick = (orderStatus: string) => {
 };
 getCount().then((res) => {
   data[0].number = res.data.noPay;
-  data[0].showPoint = data[0].number > 0 ? true : false;
   data[1].number = res.data.noReceive;
-  data[1].showPoint = data[1].number > 0 ? true : false;
 });
 </script>
 
